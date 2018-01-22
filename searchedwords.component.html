@@ -1,0 +1,36 @@
+<div id="divNewKeyword">
+  <form [formGroup]="myKeywordForm" (ngSubmit)="addKeyword(myKeywordForm.value)">
+    <label class="form-control" for="keywordName">KeywordName</label>
+    <input type="text" 
+  
+    class="form-control" formControlName="keywordName" id="keywordName"/>
+    <div class="alert alert-danger" *ngIf="!keywordName.valid && keywordName.touched">
+      <span *ngIf="keywordName.hasError('required')">
+        Name is required
+      </span>
+      <span *ngIf ="keywordName.hasError('minlength')">
+       Name not Valid
+     </span>
+     <span *ngIf ="keywordName.hasError('noSpace')">
+      space not allowed
+    </span>
+    </div>
+  
+     <label class="form-control" for="keywordId">Id</label>
+     <input type="text" class="form-control" formControlName="keywordId" id="keywordId"/>
+     <div class="alert alert-danger" *ngIf="!keywordId.valid && keywordId.touched">
+        
+        <span *ngIf="keywordId.hasError('required')">
+        ID is required
+        </span>
+  
+       <span *ngIf="keywordId.hasError('min')">
+         Id  is incorrect
+       </span>
+      </div>
+          <button (click)="addKeyword(myKeywordForm)" class="btn btn-success ">Add Keyword</button>
+          <button class="btn btn-danger" type="reset">Reset</button>
+          
+        </form>
+        
+      </div>

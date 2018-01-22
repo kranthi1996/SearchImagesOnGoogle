@@ -1,0 +1,38 @@
+<style>
+  #divLogin {
+      
+      
+      background: linear-gradient(to right, yellow,rgb(113, 189, 212)); /* Standard syntax (must be last) */
+  }
+  </style>
+<form [formGroup]="myForm">
+  <div id="divSearch">
+      <label 
+      class="form-control" 
+      for="Search">
+      Searchimages
+    </label> 
+      <input type="text"
+       class="form-control"
+       id="search"
+       formControlName="search"/>
+      <div *ngIf="!search.valid &&search.touched" class="alert alert-danger">
+       <p *ngIf="search.hasError('required')"> 
+          search cannot be empty
+       </p>
+       <p *ngIf="search.hasError('minlength')"> 
+        invalid search
+       </p>
+        </div>
+        <br/>
+      
+            <button (click)="gotoReg()" class="btn btn-success">Search</button>
+     
+     
+   
+  </div>
+ 
+</form>
+
+
+

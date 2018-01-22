@@ -1,0 +1,10 @@
+<ul>
+  <div *ngIf="((keywords.length)>0)">
+  <li *ngFor="let kw of keywords">
+    <app-keyword [keyword]="kw"></app-keyword>
+  </li>
+  </div>
+  <div *ngIf="(!((keywords.length)>0))">
+   <app-show-images></app-show-images>
+  </div>
+</ul>
